@@ -49,7 +49,18 @@ require('./app_api/config/passport');
 app.use(passport.initialize());
 app.use('/api', routesApi);
 
-//If uncaughtException occurs, then the Nodejs App crash is prevented and an error log is printed in the console
+// error handlers
+// Catch unauthorised errors
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401);
+    res.json({
+      "message": err.name + ": " + err.message
+    });
+  }
+});
+
+/*//If uncaughtException occurs, then the Nodejs App crash is prevented and an error log is printed in the console
 process.on('uncaughtException', function (err) {
   console.log(err);
-});
+});*/
