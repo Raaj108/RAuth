@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="RAuthApp">
 
 <head>
+  <base href="/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
@@ -16,12 +17,17 @@
 </head>
 
 <body>
+  <navigation></navigation>
+  <ng-view></ng-view>
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
   <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="../bower_components/angular/angular.min.js"></script>
   <script src="../bower_components/angular-route/angular-route.min.js"></script>
   <script src="RAuth.module.js"></script>
   <script src="app.config.js"></script>
+  <script src="common/authentication.service.js"></script>
+  <script src="common/navigation.directive.js"></script>
+  <script src="common/navigation.controller.js"></script>
   <script src="home/home.controller.js"></script>
   <script src="auth/register/register.controller.js"></script>
   <script src="auth/login/login.controller.js"></script>

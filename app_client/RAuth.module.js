@@ -1,1 +1,1 @@
-angular.module('RAuthApp', []);
+angular.module('RAuthApp', ['ngRoute']);
