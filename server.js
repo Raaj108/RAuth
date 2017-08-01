@@ -30,6 +30,11 @@ app.use((req, res, next) => {
   next();
 });
 
+//serve static files
+app.use(express.static(__dirname + '/app_client'));
+app.use('/public', express.static(__dirname + '/public'));
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
+
 //define MongoDB database URL
 var mongodbUri = process.env.DB_HOST;
 mongoose.connect(mongodbUri);
