@@ -8,6 +8,7 @@ angular.module('RAuthApp')
     };
 
     services.getToken = function () {
+
       return $window.localStorage['RAuthApp-token'];
     };
 
@@ -16,23 +17,22 @@ angular.module('RAuthApp')
     };
 
     services.isLoggedIn = function () {
-      var token = getToken();
+      var token = services.getToken();
       var payload;
-
       if (token) {
         payload = token.split('.')[1];
         payload = $window.atob(payload);
         payload = JSON.parse(payload);
 
-        return payload.exp > Data.now() / 1000;
+        return payload.exp > Date.now() / 1000;
       } else {
         return false;
       }
     };
 
     services.currentUser = function () {
-      if (isLoggedIn()) {
-        var token = getToken();
+      if (services.isLoggedIn()) {
+        var token = services.getToken();
         var payload = token.split('.')[1];
         payload = $window.atob(payload);
         payload = JSON.parse(payload);

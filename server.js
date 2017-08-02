@@ -34,6 +34,10 @@ app.use((req, res, next) => {
 app.use(express.static(__dirname + '/app_client'));
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
+//serving index.html on all the incoming http requests 
+app.get('/*', function (req, res) {
+  res.sendFile(__dirname + '/app_client/index.html');
+});
 
 //define MongoDB database URL
 var mongodbUri = process.env.DB_HOST;
