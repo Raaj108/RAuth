@@ -44,13 +44,24 @@ angular.module('RAuthApp')
     };
 
     services.register = function (user) {
-      return $http.post('/api/register', user).success(function (data) {
-        saveToken(data.token);
-      });
+      return $http.post('/api/register', user)
+        .then(function (response) {
+            services.saveToken(response.data.token);
+            return {
+              "status": response.status,
+              "message": response.data.message
+            };
+          },
+          function (response) {
+            return {
+              "status": response.status,
+              "message": response.data.message
+            };
+          });
     };
 
     services.login = function (user) {
-      return $http.post('/api/login', user).success(function (data) {
+      return $http.post('/api/login', user).then(function (data) {
         saveToken(data.token);
       });
     };

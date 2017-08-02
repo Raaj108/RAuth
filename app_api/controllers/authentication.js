@@ -4,7 +4,6 @@ var User = mongoose.model('User');
 
 //The Register API Controller
 module.exports.register = function (req, res) {
-
   User.findOne({
     email: req.body.email
   }, function (err, user) {
@@ -13,7 +12,7 @@ module.exports.register = function (req, res) {
       return;
     }
     if (user) {
-      res.status(404).json({
+      res.status(409).json({
         "message": "User already exist"
       });
       return
@@ -35,7 +34,8 @@ module.exports.register = function (req, res) {
         token = user.generateJwt();
         res.status(200);
         res.json({
-          "token": token
+          "token": token,
+          "message": "Registration Successfull"
         });
       });
     }
