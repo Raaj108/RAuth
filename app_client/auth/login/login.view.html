@@ -1,14 +1,31 @@
 <div id="loginFormHolder">
-  <h1>Log In</h1>
+
   <form ng-submit="vm.onSubmit()">
     <div class="form-group">
-      <label for="email" class="label">Email address</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="vm.credentials.email">
+      <div class="input-group">
+        <span class="input-group-addon transparent-icon"><span class="glyphicon glyphicon-envelope"></span></span>
+        <input type="email" class="form-control left-border-none" id="email" placeholder="E-mail" ng-model="vm.credentials.email">
+      </div>
     </div>
     <div class="form-group">
-      <label for="password" class="label">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
+      <div class="input-group">
+        <span class="input-group-addon transparent-icon"><span class="glyphicon glyphicon-lock"></span></span>
+        <input type="password" class="form-control left-border-none" id="password" placeholder="Password" ng-model="vm.credentials.password">
+      </div>
     </div>
-    <button type="submit" class="btn btn-default">Sign in!</button>
+    <div class="form-group submit-row">
+      <button type="submit" class="btn btn-submit">Sign in</button>
+      <div class="forgot-password text-center">
+        <span>Or</span>
+        <a>Forgot Password?</a>
+      </div>
+    </div>
   </form>
+  <div class="login-form-agreement text-center">
+    <span>By signing in, you agree to our <a href="">Terms of Use </a>and <a>Privacy Policy</a>.</span>
+  </div>
+  <hr>
+  <div id="loginHolderFooter" class="text-center">
+    <span>Don't have an account? <a href="register">Sign up</a></span>
+  </div>
 </div>
