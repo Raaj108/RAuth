@@ -1,36 +1,39 @@
 <div id="registrationFormHolder">
-  <form ng-submit="vm.onSubmit()">
-    <div class="form-group">
-      <div class="input-group">
-        <span class="input-group-addon transparent-icon"><span class="glyphicon glyphicon-user"></span></span>
-        <input type="text" class="form-control left-border-none" id="name" placeholder="Enter your name" ng-model="vm.credentials.name">
+  <div class="form-container">
+    <h4>Sign up for your account!</h4>
+    <form ng-submit="vm.onSubmit()">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon transparent-icon"><span class="glyphicon glyphicon-user"></span></span>
+          <input type="text" class="form-control left-border-none" id="name" placeholder="Enter your name" ng-model="vm.credentials.name">
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="input-group">
-        <span class="input-group-addon transparent-icon"><span class="glyphicon glyphicon-envelope"></span></span>
-        <input type="email" class="form-control left-border-none" id="email" placeholder="E-mail" ng-model="vm.credentials.email">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon transparent-icon"><span class="glyphicon glyphicon-envelope"></span></span>
+          <input type="email" class="form-control left-border-none" id="email" placeholder="E-mail" ng-model="vm.credentials.email">
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="input-group">
-        <span class="input-group-addon transparent-icon"><span class="glyphicon glyphicon-lock"></span></span>
-        <input type="password" class="form-control left-border-none" id="password" placeholder="Password" ng-model="vm.credentials.password">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon transparent-icon"><span class="glyphicon glyphicon-lock"></span></span>
+          <input type="password" class="form-control left-border-none" id="password" placeholder="Password" ng-model="vm.credentials.password">
+        </div>
       </div>
-    </div>
-    <div class="form-group submit-row">
-      <button type="submit" class="btn btn-submit">Sign up</button>
-      <div class="forgot-password text-center">
+      <div class="form-group submit-row">
+        <button type="submit" class="btn btn-submit">Sign up</button>
+        <div class="forgot-password text-center">
 
 
+        </div>
       </div>
+    </form>
+    <div class="registration-form-agreement text-center">
+      <span>By signing up, you agree to our <a href="">Terms of Use </a>and <a>Privacy Policy</a>.</span>
     </div>
-  </form>
-  <div class="registration-form-agreement text-center">
-    <span>By signing up, you agree to our <a href="">Terms of Use </a>and <a>Privacy Policy</a>.</span>
-  </div>
-  <hr>
-  <div id="registrationHolderFooter" class="text-center">
-    <span>Already have an account? <a href="login">Sign in</a></span>
+    <hr>
+    <div id="registrationHolderFooter" class="text-center">
+      <span>Already have an account? <a href="login">Sign in</a></span>
+    </div>
   </div>
 </div>

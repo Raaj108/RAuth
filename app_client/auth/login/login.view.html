@@ -1,31 +1,43 @@
 <div id="loginFormHolder">
-
-  <form ng-submit="vm.onSubmit()">
-    <div class="form-group">
-      <div class="input-group">
-        <span class="input-group-addon transparent-icon"><span class="glyphicon glyphicon-envelope"></span></span>
-        <input type="email" class="form-control left-border-none" id="email" placeholder="E-mail" ng-model="vm.credentials.email">
+  <div class="form-container">
+    <h4>Log into your account!</h4>
+    <hr>
+    <form name="form" ng-submit="vm.onSubmit()" novalidate class="css-form">
+      <div ng-show="form.$submitted" class="error-messages">
+        <span ng-show="form.uEmail.$error.required">Please enter your email.</span>
+        <span ng-show="form.uEmail.$error.email">Please enter a valid email.</span>
+        <span ng-show="form.uPassword.$error.required">Please enter your password.</span>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="input-group">
-        <span class="input-group-addon transparent-icon"><span class="glyphicon glyphicon-lock"></span></span>
-        <input type="password" class="form-control left-border-none" id="password" placeholder="Password" ng-model="vm.credentials.password">
+      <div class="form-group">
+        <div class="input-group">
+          <span ng-class="{'focus':emailFocus===true}" class="input-group-addon transparent-icon">
+            <span class="glyphicon glyphicon-envelope"></span>
+          </span>
+          <input type="email" class="form-control left-border-none" name="uEmail" placeholder="E-mail" ng-model="vm.credentials.email" required ng-focus="emailFocus=true" ng-blur="emailFocus=false">
+        </div>
       </div>
-    </div>
-    <div class="form-group submit-row">
-      <button type="submit" class="btn btn-submit">Sign in</button>
-      <div class="forgot-password text-center">
-        <span>Or</span>
-        <a>Forgot Password?</a>
+      <div class="form-group">
+        <div class="input-group">
+          <span ng-class="{'focus':pwdFocus===true}" class="input-group-addon transparent-icon">
+            <span class="glyphicon glyphicon-lock"></span>
+          </span>
+          <input type="password" class="form-control left-border-none" name="uPassword" placeholder="Password" ng-model="vm.credentials.password" required ng-focus="pwdFocus=true" ng-blur="pwdFocus=false">
+        </div>
       </div>
+      <div class="form-group submit-row">
+        <button type="submit" class="btn btn-submit">Sign in</button>
+        <div class="forgot-password text-center">
+          <span>Or</span>
+          <a>Forgot Password?</a>
+        </div>
+      </div>
+    </form>
+    <div class="login-form-agreement text-center">
+      <span>By signing in, you agree to our <a href="">Terms of Use </a>and <a>Privacy Policy</a>.</span>
     </div>
-  </form>
-  <div class="login-form-agreement text-center">
-    <span>By signing in, you agree to our <a href="">Terms of Use </a>and <a>Privacy Policy</a>.</span>
-  </div>
-  <hr>
-  <div id="loginHolderFooter" class="text-center">
-    <span>Don't have an account? <a href="register">Sign up</a></span>
+    <hr>
+    <div id="loginHolderFooter" class="text-center">
+      <span>Don't have an account? <a href="register">Sign up</a></span>
+    </div>
   </div>
 </div>
