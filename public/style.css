@@ -156,9 +156,10 @@ input::placeholder {
   border-color: #78FA89;
 }
 
-.error-messages {
+ul.error-messages {
   background-color: #ffc3c6;
   color: #ff0000;
   padding: 7px 5px;
   margin-bottom: 10px;
+  list-style-type: none;
 }

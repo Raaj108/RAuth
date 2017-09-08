@@ -35,7 +35,7 @@ app.use(express.static(__dirname + '/app_client'));
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 //serving index.html on all the incoming http requests 
-app.get('/*', function (req, res) {
+app.get('/:var(login|register|profile)', function (req, res) {
   res.sendFile(__dirname + '/app_client/index.html');
 });
 
@@ -69,7 +69,7 @@ app.use(function (err, req, res, next) {
   }
 });
 
-/*//If uncaughtException occurs, then the Nodejs App crash is prevented and an error log is printed in the console
+//If uncaughtException occurs, then the Nodejs App crash is prevented and an error log is printed in the console
 process.on('uncaughtException', function (err) {
   console.log(err);
-});*/
+});

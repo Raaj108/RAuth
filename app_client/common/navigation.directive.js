@@ -4,7 +4,7 @@ angular.module('RAuthApp')
       restrict: 'EA',
       templateUrl: '/common/navigation.view.html',
       controller: 'navigationCtrl',
-      controllerAs: 'vm',
+      controllerAs: 'navvm',
       replace: true
     }
   });

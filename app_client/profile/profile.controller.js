@@ -1,5 +1,12 @@
 angular.module('RAuthApp')
-  .controller('profileCtrl', [function () {
+  .controller('profileCtrl', ['$location', 'meanData', function ($location, meanData) {
     var vm = this;
-    vm.name = "profile";
+    vm.user = {};
+
+    meanData.getProfile()
+      .then(function (data) {
+        vm.user = data.data;
+      }, function (data) {
+        console.log(data);
+      });
 }]);

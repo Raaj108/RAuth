@@ -2,12 +2,16 @@
   <div class="form-container">
     <h4>Log into your account!</h4>
     <hr>
-    <form name="form" ng-submit="vm.onSubmit()" novalidate class="css-form">
-      <div ng-show="form.$submitted" class="error-messages">
-        <span ng-show="form.uEmail.$error.required">Please enter your email.</span>
-        <span ng-show="form.uEmail.$error.email">Please enter a valid email.</span>
-        <span ng-show="form.uPassword.$error.required">Please enter your password.</span>
-      </div>
+    <form name="vm.form" ng-submit="vm.onSubmit()" novalidate class="css-form">
+      <ul ng-show="vm.form.$submitted && vm.form.$error && !vm.form.$valid" class="error-messages">
+        <li ng-show="vm.loggingIn.status === 401 && vm.loggingIn.message !== 'Missing credentials'">
+          {{vm.loggingIn.message}}.
+        </li>
+        <li ng-show="vm.form.uEmail.$error.required">Please enter your email.</li>
+        <li ng-show="vm.form.uEmail.$error.email">Please enter a valid email.</li>
+        <li ng-show="vm.form.uPassword.$error.required">Please enter your password.</li>
+
+      </ul>
       <div class="form-group">
         <div class="input-group">
           <span ng-class="{'focus':emailFocus===true}" class="input-group-addon transparent-icon">
