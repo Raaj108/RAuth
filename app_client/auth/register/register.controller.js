@@ -1,5 +1,5 @@
 angular.module('RAuthApp')
-  .controller('registerCtrl', ['$location', 'authentication', function ($location, authentication) {
+  .controller('registerCtrl', ['$rootScope','$location', 'authentication', function ($rootScope, $location, authentication) {
 
     var vm = this;
 
@@ -17,21 +17,23 @@ angular.module('RAuthApp')
     vm.onSubmit = function () {
       authentication
         .register(vm.credentials)
-        .then(function (data) {
-          vm.credentials = angular.copy(vm.reset);
+        .then(function (data) {          
           vm.registration = {
             status: data.status,
             message: data.message
           };
-          if (vm.registration.status === 200) {
-            $location.path('profile');
+          if (vm.registration.status === 200) {       
+            $rootScope.isLoggedIn = authentication.isLoggedIn();     
+            $location.path('profile');            
           }
-        }, function (data) {
           vm.credentials = angular.copy(vm.reset);
+        }, function (err) { 
+        vm.form.$setPristine();        
           vm.registration = {
-            status: data.status,
-            message: data.message
+            status: err.status,
+            message: wrr.message
           };
+          vm.credentials = angular.copy(vm.reset);          
         });
     };
 }]);

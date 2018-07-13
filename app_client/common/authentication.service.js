@@ -2,6 +2,7 @@ angular.module('RAuthApp')
   .factory('authentication', ['$http', '$window', function ($http, $window) {
 
     var services = {};
+    
 
     services.saveToken = function (token) {
       $window.localStorage['RAuthApp-token'] = token;

@@ -7,7 +7,7 @@
         <li ng-show="vm.form.uEmail.$error.required">Please enter your email.</li>
         <li ng-show="vm.form.uEmail.$error.email">Please enter a valid email.</li>
         <li ng-show="vm.form.uPassword.$error.required">Please enter your password.</li>
-        <li ng-show="vm.loggingIn.status === 401 && vm.loggingIn.message !== 'Missing credentials'">{{vm.loggingIn.message}}.</li>
+        <li ng-show="vm.registration.status === 409 && vm.registration.message !== 'Missing credentials'">{{vm.registration.message}}.</li>
       </ul>
       <div class="form-group">
         <div class="input-group">

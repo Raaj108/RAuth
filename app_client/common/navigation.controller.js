@@ -1,15 +1,13 @@
 angular.module('RAuthApp')
-  .controller('navigationCtrl', ['$location', 'authentication', function ($location, authentication) {
+  .controller('navigationCtrl', ['$rootScope','$location', 'authentication', function ($rootScope, $location, authentication) {
 
     var navvm = this;
-
-    navvm.isLoggedIn = authentication.isLoggedIn();
-
+   
     navvm.currentUser = authentication.currentUser();
 
     navvm.logout = function () {
       authentication.logout();
-      navvm.isLoggedIn = false;
+      $rootScope.isLoggedIn = authentication.isLoggedIn();        
       $location.path('login');
     }
   }]);

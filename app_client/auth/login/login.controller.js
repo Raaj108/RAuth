@@ -1,5 +1,5 @@
 angular.module('RAuthApp')
-  .controller('loginCtrl', ['$location', 'authentication', function ($location, authentication) {
+  .controller('loginCtrl', ['$rootScope', '$location', 'authentication', function ($rootScope, $location, authentication) {
     var vm = this;
 
     vm.credentials = {
@@ -19,8 +19,9 @@ angular.module('RAuthApp')
             status: data.status,
             message: data.message
           };
-          if (vm.loggingIn.status === 200) {
-            $location.path('profile');
+          if (vm.loggingIn.status === 200) { 
+            $rootScope.isLoggedIn = authentication.isLoggedIn();                
+            $location.path('home');
           } else if (vm.loggingIn.status === 401) {
             console.log(vm.form.error);
           }

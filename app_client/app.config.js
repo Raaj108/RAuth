@@ -2,8 +2,8 @@ angular.module('RAuthApp')
   .config(['$routeProvider', '$locationProvider',function($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'home/home.view.html',
-        controller: 'homeCtrl',
+        templateUrl: '/auth/login/login.view.html',
+        controller: 'loginCtrl',
         controllerAs: 'vm'
       })
       .when('/register', {
@@ -14,6 +14,11 @@ angular.module('RAuthApp')
       .when('/login', {
         templateUrl: '/auth/login/login.view.html',
         controller: 'loginCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/home', {
+        templateUrl: '/home/home.view.html',
+        controller: 'homeCtrl',
         controllerAs: 'vm'
       })
       .when('/profile', {

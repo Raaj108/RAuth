@@ -14,7 +14,7 @@ module.exports.register = function (req, res) {
     }
     if (user) {
       res.status(409).json({
-        "message": "User already exist"
+        "message": "This email ID is already registered. Please use another email ID"
       });
       return
     } else {
