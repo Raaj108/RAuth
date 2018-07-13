@@ -6,18 +6,14 @@
 				<p  class="user-profile-img">
 				 	<span class="glyphicon glyphicon-user"></span>
 				</p>
-			
-				<p  class="user-profile-name">
-				 	{{vm.user.name}}
-				</p>
 			</td>
 		</tr>
-		<tr>			
+		<tr ng-repeat="(key, val) in vm.user | filterNameAndEmail">			
 			<td>
 				<label class="user-profile-info-label">					
-					Email
+					{{key | capitalize}}
 				</label>
-				<p class="user-profile-email">{{vm.user.email}}</p>
+				<p class="user-profile-info-value">{{val}}</p>
 		</td>
 		</tr>		
 	</tbody>
