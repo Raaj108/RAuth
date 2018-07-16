@@ -10,6 +10,7 @@ var auth = jwt({
 var ctrlProfile = require('../controllers/profile');
 var ctrlHome = require('../controllers/home');
 var ctrlAuth = require('../controllers/authentication');
+var ctrlFgtPwd = require('../controllers/forgotpassword');
 
 
 // profile
@@ -19,5 +20,6 @@ router.get('/home', auth, ctrlHome.homeRead);
 // authentication
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
+router.post('/forgot-password', ctrlFgtPwd.forgotpassword);
 
 module.exports = router;

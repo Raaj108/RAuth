@@ -10,4 +10,12 @@ angular.module('RAuthApp')
       $rootScope.isLoggedIn = authentication.isLoggedIn();        
       $location.path('login');
     }
+
+    navvm.showUserMenu = function(){
+    	document.getElementById('userMenu').style.display = 'block';
+    }
+
+    navvm.hideUserMenu = function(){
+    	document.getElementById('userMenu').style.display = 'none';
+    }
   }]);
