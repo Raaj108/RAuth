@@ -21,6 +21,16 @@ angular.module('RAuthApp')
         controller: 'fgtPwdCtrl',
         controllerAs: 'vm'
       })
+      .when('/forgot-password/confirmation', {
+        templateUrl: '/auth/forgot-password/forgot-password-confirmation.view.html',
+        controller: 'fgtPwdCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/reset-password', {
+        templateUrl: '/auth/forgot-password/reset-password.view.html',
+        controller: 'fgtPwdCtrl',
+        controllerAs: 'vm'
+      })
       .when('/home', {
         templateUrl: '/home/home.view.html',
         controller: 'homeCtrl',

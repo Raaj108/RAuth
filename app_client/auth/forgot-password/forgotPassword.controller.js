@@ -1,5 +1,5 @@
 angular.module('RAuthApp')
-  .controller('fgtPwdCtrl', ['$rootScope', '$location', 'forgotPassword', function ($rootScope, $location, forgotPassword) {
+  .controller('fgtPwdCtrl', ['$rootScope', '$location', 'forgotPassword', '$window', function ($rootScope, $location, forgotPassword, $window) {
     var vm = this;
 
     vm.credentials = {
@@ -9,13 +9,15 @@ angular.module('RAuthApp')
       email: ""      
     };
     
+   
     vm.onSubmit = function () {
       forgotPassword.forgotpassword(vm.credentials)
       .then(function (data) {
         console.log(data);
+        $window.location.href = '/forgot-password/confirmation'
       },
       function (err) {
-        console.log(err);
+        vm.errorMsg = err.message;
       });
     };
 }]);
