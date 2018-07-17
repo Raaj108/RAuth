@@ -15,6 +15,7 @@ module.exports.forgotpassword = function (req, res) {
     }
     if (user) {
       var toEmail = req.body.email;
+      var token = token = user.generateJwt();
       var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -26,8 +27,9 @@ module.exports.forgotpassword = function (req, res) {
       var mailOptions = {
         from: 'rajpatil925@gmail.com',
         to: toEmail,
-        subject: 'RAuth link for resetting your password.',
-        text: 'RAuth link for resetting your password.'
+        subject: 'RAuth link for resetting your password.',  
+        html: '<p>RAuth link for resetting your password. Click on this link to reset your password. <a href="http://localhost:3001/reset-password?token=' + token + '">here</a> to reset your password</p>'
+             
       };
 
       transporter.sendMail(mailOptions, function(error, info){
