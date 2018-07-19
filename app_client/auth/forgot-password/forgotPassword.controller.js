@@ -8,8 +8,7 @@ angular.module('RAuthApp')
     vm.reset = {
       email: ""      
     };
-    
-   
+       
     vm.onSubmit = function () {
       forgotPassword.forgotpassword(vm.credentials)
       .then(function (data) {

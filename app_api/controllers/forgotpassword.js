@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var nodemailer = require('nodemailer');
-
+var crypto = require('crypto');
 
 //The Forgot-Password API Controller
 module.exports.forgotpassword = function (req, res) {
@@ -14,8 +14,11 @@ module.exports.forgotpassword = function (req, res) {
       return;
     }
     if (user) {
-      var toEmail = req.body.email;
-      var token = token = user.generateJwt();
+      var toEmail = req.body.email; 
+      var token = crypto.randomBytes(20).toString('hex');
+      user.RPToken = token;
+      user.RPTokenExpire =  Date.now() + 3600000; // 1 hour
+
       var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -25,25 +28,27 @@ module.exports.forgotpassword = function (req, res) {
       });
 
       var mailOptions = {
-        from: 'rajpatil925@gmail.com',
+        from: process.env.Email_uName,
         to: toEmail,
         subject: 'RAuth link for resetting your password.',  
-        html: '<p>RAuth link for resetting your password. Click on this link to reset your password. <a href="http://localhost:3001/reset-password?token=' + token + '">here</a> to reset your password</p>'
-             
+        text:'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+          'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+          'http://' + req.headers.host + '/reset-password/' + token + '\n\n' +
+          'If you did not request this, please ignore this email and your password will remain unchanged.\n'                 
       };
 
       transporter.sendMail(mailOptions, function(error, info){
         if (error) {
-           res.status(401).json({
+          res.status(401).json({
               "message": "An error occured while sending you reset password link. Please try again after sometime."
-            });
-            
+            });            
           console.log("Error : " + error);
         } else {
             res.status(200).json({
-              "message": "Link to reset your password has been sent to your email address."
-            });
-            console.log('Email sent: ' + info.response);
+            "token":token,
+            "message": 'An e-mail has been sent to ' + user.email + ' with further instructions.'
+        }); 
+        console.log("info : " + info);           
         }
       });      
       return
