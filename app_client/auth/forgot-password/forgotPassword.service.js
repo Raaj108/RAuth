@@ -1,12 +1,11 @@
 angular.module('RAuthApp')
-  .factory('forgotPassword', ['$http', '$window', 'authentication', function ($http, $window, authentication) {
+  .factory('forgotPassword', ['$http', '$window', function ($http, $window) {
 
     var services = {};
     
       services.forgotpassword = function (user) {
       return $http.post('/api/forgot-password', user)
-      .then(function(response){
-        authentication.saveToken(response.data.token);
+      .then(function(response){       
          return {
               "status": response.status,
               "message": response.data.message

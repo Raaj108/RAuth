@@ -23,6 +23,6 @@ router.get('/home', auth, ctrlHome.homeRead);
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 router.post('/forgot-password', ctrlFgtPwd.forgotpassword);
-router.get('/reset-password/:token', ctrlResetPwd.resetPasswordCheckToken);
+router.get('/validate-token', ctrlResetPwd.validateToken);
 
 module.exports = router;
