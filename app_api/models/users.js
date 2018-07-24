@@ -15,7 +15,9 @@ var userSchema = new mongoose.Schema({
     required: true
   },
   hash: String,
-  salt: String
+  salt: String,
+  resetPasswordToken: String,
+  resetPasswordExpires: Date
 });
 
 //Setting the Password to hash

@@ -4,19 +4,11 @@ angular.module('RAuthApp')
     var services = {};
 
     services.validateToken = function (token) {
-      return $http.post('/api/validate-token', token)
-      .then(function(response){       
-         return {
-              "status": response.status,
-              "message": response.data.message
-            };
-      },
-      function (response) {
-         return {
-          "status": response.status,
-          "message": response.data.message
-        };
-      })
+      return $http.get('/api/validate-token', {
+        headers:{
+           Authorization: token
+        }
+      })      
   	};    
     return services;
 }]);

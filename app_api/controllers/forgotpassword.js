@@ -16,8 +16,16 @@ module.exports.forgotpassword = function (req, res) {
     if (user) {
       var toEmail = req.body.email; 
       var token = crypto.randomBytes(20).toString('hex');
-      user.RPToken = token;
-      user.RPTokenExpire =  Date.now() + 3600000; // 1 hour
+      user.resetPasswordToken = token;
+      user.resetPasswordExpires =  Date.now() + 3600000; // 1 hour
+      
+      user.save(function(err){
+        if(err){
+           console.log(err)
+        }else{
+          console.log("saved")
+        }
+      });
 
       var transporter = nodemailer.createTransport({
         service: 'gmail',

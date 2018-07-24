@@ -132,8 +132,7 @@ input::placeholder {
   border: 1px solid #e0e0e0;
 }
 
-#loginFormHolder,
-#registrationFormHolder {
+.formHolder {
   margin: 120px auto;
   width: 35%;
 }
