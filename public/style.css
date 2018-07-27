@@ -84,6 +84,19 @@ a:hover {
 
 
 /******Forms******/
+.form-container,
+.white-box {
+  background-color: white;
+  padding: 20px 20px;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+}
+
+.formHolder {
+  margin: 120px auto;
+  width: 35%;
+}
+
 
 input::placeholder {
   color: #dedfe0
@@ -122,52 +135,6 @@ input::placeholder {
   }
 }
 
-
-/*Login and registration Form*/
-
-.form-container {
-  background-color: white;
-  padding: 20px 20px;
-  border-radius: 10px;
-  border: 1px solid #e0e0e0;
-}
-
-.formHolder {
-  margin: 120px auto;
-  width: 35%;
-}
-
-@media only screen and (max-width: 480px) and (orientation: portrait) {
-  #loginFormHolder,
-  #registrationFormHolder {
-    margin: 10px auto;
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 780px) and (orientation: landscape) {
-  #loginFormHolder,
-  #registrationFormHolder {
-    margin: 20px auto;
-    width: 50%;
-  }
-}
-
-#loginFormHolder h4,
-#registrationFormHolder h4 {
-  margin-bottom: 20px;
-}
-
-.forgot-password {
-  padding-top: 10px;
-}
-
-.login-form-agreement,
-.registration-form-agreement {
-  font-size: 10px;
-}
-
-
 /*Form Validations*/
 
 .form-control:focus {
@@ -198,6 +165,88 @@ ul.error-messages {
   list-style-type: none;
 }
 
+/*Login and registration Form*/
+
+#loginFormHolder h4,
+#registrationFormHolder h4 {
+  margin-bottom: 20px;
+}
+
+.login-form-agreement,
+.registration-form-agreement {
+  font-size: 10px;
+}
+
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+  #loginFormHolder,
+  #registrationFormHolder {
+    margin: 10px auto;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 780px) and (orientation: landscape) {
+  #loginFormHolder,
+  #registrationFormHolder {
+    margin: 20px auto;
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {  
+   #loginFormHolder,
+  #registrationFormHolder {
+    margin: 20px auto;
+    width: 80%;
+  }
+}
+
+/*Forgot Password*/
+
+.forgot-password {
+  padding-top: 10px;
+}
+
+#confirmationWrapper{
+  margin: 120px auto;
+  width: 60%;
+  color:#555555;
+}
+
+#confirmationWrapper #back{
+  font-size: 18px;
+}
+
+#confirmationMessage{
+  padding-bottom: 20px;
+}
+
+#confirmationMessage h1{
+  margin: 40px 0;
+}
+
+/*Iphone 6/7/8/10 , Samsung galaxy 5/6/7/8/9*/
+@media only screen and (max-width: 480px) and (orientation: portrait) {
+  #confirmationWrapper{
+    margin: 10px auto;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 780px) and (orientation: landscape) {  
+  #confirmationWrapper {
+    margin: 20px auto;
+    width: 80%;
+  }
+}
+
+/*Ipad*/
+@media only screen and (max-width: 768px) and (orientation: portrait) {  
+  #confirmationWrapper {
+    margin: 20px auto;
+    width: 80%;
+  }
+}
 
 /*Profile Page*/
 
