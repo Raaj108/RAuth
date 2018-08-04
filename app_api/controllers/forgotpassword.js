@@ -39,10 +39,13 @@ module.exports.forgotpassword = function (req, res) {
         from: process.env.Email_uName,
         to: toEmail,
         subject: 'RAuth link for resetting your password.',  
-        text:'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
-          'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-          'http://' + req.headers.host + '/reset-password/' + token + '\n\n' +
-          'If you did not request this, please ignore this email and your password will remain unchanged.\n'                 
+        text:'Hello from RAuth,\n\n'+
+        'We recently received your request to reset the password for your "rajj108" mLab account user. To do so, '+
+        'Please click on the following link, or paste this into your browser:\n' +
+        'http://' + req.headers.host + '/reset-password/' + token + '\n\n' +
+        "For your account's protection, the above link expires in one hour \n\n"+
+        'If you did not request this, please ignore this email and your password will remain unchanged.\n\n'+
+        'Thank You.'                 
       };
 
       transporter.sendMail(mailOptions, function(error, info){

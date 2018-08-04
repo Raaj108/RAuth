@@ -16,6 +16,7 @@ body {
 
 a {
   cursor: pointer;
+  color: #c52208;
 }
 
 a:hover {
@@ -223,6 +224,16 @@ ul.error-messages {
 
 #confirmationMessage h1{
   margin: 40px 0;
+}
+
+span.resendLink{
+  color: #c52208;
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+
+span.resendLink:hover{
+  text-decoration-line: none;
 }
 
 /*Iphone 6/7/8/10 , Samsung galaxy 5/6/7/8/9*/

@@ -10,5 +10,23 @@ angular.module('RAuthApp')
         }
       })      
   	};    
+
+    services.resetPassword = function(user){
+       return $http.post('/api/reset-password', user)
+      .then(function(response){       
+        return {
+          "status": response.status,
+          "message": response.data.message
+        };
+      },
+      function (response) {
+        return {
+          "status": response.status,
+          "message": response.data.message
+        };
+     });
+    };
+
+
     return services;
 }]);
