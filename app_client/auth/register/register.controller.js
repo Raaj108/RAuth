@@ -28,10 +28,10 @@ angular.module('RAuthApp')
           }
           vm.credentials = angular.copy(vm.reset);
         }, function (err) { 
-        vm.form.$setPristine();        
+          vm.form.$setPristine();        
           vm.registration = {
             status: err.status,
-            message: wrr.message
+            message: err.message
           };
           vm.credentials = angular.copy(vm.reset);          
         });
