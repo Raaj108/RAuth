@@ -12,8 +12,11 @@ module.exports.forgotpassword = function (req, res) {
     if (err) {
       res.status(404).json(err);
       return;
-    }
-    if (user) {
+    }else if(!user)  {
+       res.status(401).json({
+        "message": " User with this email address is not found."
+      });     
+    }else {
       var toEmail = req.body.email; 
       var token = crypto.randomBytes(20).toString('hex');
       user.resetPasswordToken = token;
@@ -62,11 +65,6 @@ module.exports.forgotpassword = function (req, res) {
         console.log("info : " + info);           
         }
       });      
-      return
-    } else {
-       res.status(401).json({
-        "message": " User with this email address is not found."
-      });     
     }
   });
 };

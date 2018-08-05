@@ -9,21 +9,36 @@ angular.module('RAuthApp')
       email: ""      
     };
 
-     vm.isEmailSent = false;
+    vm.sendEmail = {
+      status: "",
+      message: ""
+    }
+
+    vm.isEmailSent = false;     
        
     vm.onSubmit = function () {
       forgotPassword.forgotpassword(vm.credentials)
-      .then(function (data) {        
-       if(data.status === 200){
-          vm.isEmailSent = true;
-       }
-      },
-      function (err) {
-        vm.errorMsg = err.message;
+      .then(function (data) {  
+        vm.sendEmail = {
+          status: data.status,
+          message: data.message
+        }
+        if(vm.sendEmail.status === 200){
+          vm.isEmailSent = true;         
+        } 
+         vm.credentials = angular.copy(vm.reset);       
+      },function (err) { 
+        vm.form.$setPristine();        
+        vm.sendEmail = {
+          status: err.status,
+          message: err.message
+         };
+        vm.credentials = angular.copy(vm.reset);          
       });
     };
 
     vm.resendLink = function(){
+      vm.form.$setPristine(); 
       vm.isEmailSent = false;
     }
 }]);

@@ -6,17 +6,17 @@ angular.module('RAuthApp')
       services.forgotpassword = function (user) {
       return $http.post('/api/forgot-password', user)
       .then(function(response){       
-         return {
-              "status": response.status,
-              "message": response.data.message
-            };
+        return {
+          "status": response.status,
+          "message": response.data.message
+        }
       },
-      function (response) {
-         return {
-              "status": response.status,
-              "message": response.data.message
-            };
-     })
+      function (response) {        
+        return {
+         "status": response.status,
+         "message": response.data.message
+        }        
+     });
     };
     return services;
 }]);
