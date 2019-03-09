@@ -6,6 +6,11 @@ var auth = jwt({
   userProperty: 'payload'
 });
 
+var verify = jwt({
+  secret: process.env.RAHASYA,
+  requestProperty: 'payload'
+});
+
 var ctrlProfile = require('../controllers/profile');
 var ctrlHome = require('../controllers/home');
 var ctrlAuth = require('../controllers/authentication');
@@ -14,6 +19,7 @@ var ctrlResetPwd = require('../controllers/resetPassword');
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);
+router.put('/:id/uploadProfilePic', verify, ctrlProfile.uploadProfilePic);
 //home
 router.get('/home', auth, ctrlHome.homeRead);
 

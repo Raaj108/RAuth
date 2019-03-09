@@ -1,8 +1,18 @@
 <div id="profileContainer">
   <div class="text-center">
-    <p class="user-profile-img">
-      <span class="glyphicon glyphicon-user"></span>
-    </p>
+    <div class="user-profile-img" ng-mouseover="vm.showUploadBtn()">
+      <figure>
+        <img name="profilePicture" id="profilePicture" ng-src="vm.user.profilePicture">
+        <!--<span class="glyphicon glyphicon-user"></span>-->
+      </figure>
+    </div>
+    
+    <div id="uploadImageContainer" ng-show="vm.showUploadBtn">
+      <label class="custom-file-upload">
+        <input type="file" id="uploadImageBtn">       
+      </label>
+    </div>
+    
     <h3 class="user-profile-name">
       Welcome, {{vm.user.name}}
     </h3>
@@ -26,7 +36,7 @@
       </div>
       <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
         <a href="" class="edit" title="Edit" ng-click="vm.edit('name');"><i class="glyphicon glyphicon-edit"></i></a>
-      </div>      
+      </div>
     </div>
     <hr>
     <div class="form-group">

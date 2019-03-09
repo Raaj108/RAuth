@@ -8,7 +8,7 @@ module.exports.profileRead = function (req, res) {
     res.status(401).json({
       "message": "UnauthorizedError: private profile"
     });
-  }else {
+  } else {
     // Otherwise continue
     User.findById(req.payload._id)
       .exec(function (err, user) {
@@ -21,4 +21,16 @@ module.exports.profileRead = function (req, res) {
       });
   }
 
+};
+
+module.exports.uploadProfilePic = function (req, res) {
+  console.log("profile Picture")  
+  // If no user ID exists in the JWT return a 401
+  if (!req.payload._id) {
+    res.status(401).json({
+      "message": "UnauthorizedError: private profile"
+    });
+  } else {
+    res.status(200).json({"x":"found"});
+  }
 };
