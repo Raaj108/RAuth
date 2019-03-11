@@ -1,14 +1,25 @@
 var express = require('express');
 var router = express.Router();
+var multer = require('multer')
+var multerConfig = {
+    storage: multer.diskStorage({
+        destination: function (req, file, next) {
+            next(null, './public/images')
+        },
+        fileName: function (req, file, next) {
+            console.log(file);
+        }
+    })
+}
 var jwt = require('express-jwt');
 var auth = jwt({
-  secret: process.env.RAHASYA,
-  userProperty: 'payload'
+    secret: process.env.RAHASYA,
+    userProperty: 'payload'
 });
 
 var verify = jwt({
-  secret: process.env.RAHASYA,
-  requestProperty: 'payload'
+    secret: process.env.RAHASYA,
+    requestProperty: 'payload'
 });
 
 var ctrlProfile = require('../controllers/profile');
@@ -19,7 +30,7 @@ var ctrlResetPwd = require('../controllers/resetPassword');
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);
-router.put('/:id/uploadProfilePic', verify, ctrlProfile.uploadProfilePic);
+router.put('/:id/uploadProfilePic', multer(multerConfig).single('photo') , ctrlProfile.uploadProfilePic);
 //home
 router.get('/home', auth, ctrlHome.homeRead);
 

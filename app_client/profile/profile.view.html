@@ -1,56 +1,59 @@
 <div id="profileContainer">
-  <div class="text-center">
-    <div class="user-profile-img" ng-mouseover="vm.showUploadBtn()">
-      <figure>
-        <img name="profilePicture" id="profilePicture" ng-src="vm.user.profilePicture">
-        <!--<span class="glyphicon glyphicon-user"></span>-->
-      </figure>
-    </div>
-    
-    <div id="uploadImageContainer" ng-show="vm.showUploadBtn">
-      <label class="custom-file-upload">
-        <input type="file" id="uploadImageBtn">       
-      </label>
-    </div>
-    
-    <h3 class="user-profile-name">
-      Welcome, {{vm.user.name}}
-    </h3>
+    <div class="text-center">
+        <form name="profilePictureForm" enctype="multipart/form-data" ng-submit="vm.uploadProfilePicture()">
+            <div class="user-profile-img" ng-mouseover="vm.showUploadBtn()">
+                <figure>
+                    <img name="profilePicture" id="profilePicture" ng-src="">
+                    <!--<span class="glyphicon glyphicon-user"></span>-->
+                </figure>
+            </div>
 
-    <p class="subheading">Manage your info, privacy, and security to make RAuth work better for you</p>
-  </div>
+            <div id="uploadImageContainer">
+                <label class="custom-file-upload">
+                    <input type="file" id="uploadImageBtn" name="uploadImageBtn" fileread="vm.user.profilePicture">       
+                  </label>
+            </div>
+            <input type="submit" value="save" name="save">
+        </form>
 
-  <div id="manageProfile" class="form-horizontal">
-    <div>
-      <h3>Manage Profile</h3>
-      <hr>
+        <h3 class="user-profile-name">
+            Welcome, {{vm.user.name}}
+        </h3>
+
+        <p class="subheading">Manage your info, privacy, and security to make RAuth work better for you</p>
     </div>
-    <div class="form-group">
-      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-        <label class="user-profile-info-label">
+
+    <div id="manageProfile" class="form-horizontal">
+        <div>
+            <h3>Manage Profile</h3>
+            <hr>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <label class="user-profile-info-label">
           Name
         </label>
-      </div>
-      <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8">
-        <input type="text" class="form-control" placeholder="Name" ng-model="vm.user.name" ng-disabled="!vm.editName">
-      </div>
-      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-        <a href="" class="edit" title="Edit" ng-click="vm.edit('name');"><i class="glyphicon glyphicon-edit"></i></a>
-      </div>
-    </div>
-    <hr>
-    <div class="form-group">
-      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-        <label class="user-profile-info-label">
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" placeholder="Name" ng-model="vm.user.name" ng-disabled="!vm.editName">
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <a href="" class="edit" title="Edit" ng-click="vm.edit('name');"><i class="glyphicon glyphicon-edit"></i></a>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <label class="user-profile-info-label">
           Email
         </label>
-      </div>
-      <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8">
-        <input type="email" class="form-control" placeholder="Email" ng-model="vm.user.email" ng-disabled="!vm.editEmail">
-      </div>
-      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-        <a href="" class="edit" title="Edit" ng-click="vm.edit('email');"><i class="glyphicon glyphicon-edit"></i></a>
-      </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-8 col-xs-8">
+                <input type="email" class="form-control" placeholder="Email" ng-model="vm.user.email" ng-disabled="!vm.editEmail">
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <a href="" class="edit" title="Edit" ng-click="vm.edit('email');"><i class="glyphicon glyphicon-edit"></i></a>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

@@ -4,7 +4,7 @@
   "description": "token-based user authentication application",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
+    "start": "nodemon server.js",
     "postinstall": "./node_modules/bower/bin/bower install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -27,6 +27,7 @@
     "jsonwebtoken": "^7.4.1",
     "mongoose": "~4.1.10",
     "morgan": "^1.8.2",
+    "multer": "^1.4.1",
     "nodemailer": "^4.6.7",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
@@ -36,6 +37,6 @@
     "node": ">=0.10.0"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.18.10"
   }
 }
