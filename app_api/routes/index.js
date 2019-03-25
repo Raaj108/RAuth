@@ -30,7 +30,7 @@ var ctrlResetPwd = require('../controllers/resetPassword');
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);
-router.put('/:id/uploadProfilePic', multer(multerConfig).single('photo') , ctrlProfile.uploadProfilePic);
+router.post('/:id/uploadProfilePic', multer(multerConfig).single('photo') , ctrlProfile.uploadProfilePic);
 //home
 router.get('/home', auth, ctrlHome.homeRead);
 

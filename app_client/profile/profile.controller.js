@@ -12,9 +12,8 @@ angular.module('RAuthApp')
 
         vm.uploadProfilePicture = function () {
             var userId = vm.user._id;
-            var profilePictureRawData = {
-                "photo": vm.user.profilePicture
-            };
+            var profilePictureRawData = vm.user.profilePicture
+            
 
             meanData.uploadProfilePic(userId, profilePictureRawData).then(function (data) {
                 console.log(data);

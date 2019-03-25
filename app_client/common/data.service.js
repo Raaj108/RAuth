@@ -13,10 +13,11 @@ angular.module('RAuthApp')
         services.uploadProfilePic = function (id, rawData) {
             var url = '/api/' + id + '/uploadProfilePic';   
             console.log(rawData)
-            return $http.put(url, rawData, {
+            return $http.post(url, rawData, {
                 headers: {
                     Authorization: 'Bearer ' + authentication.getToken(),
-                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                    enctype:"multipart/form-data"
                 }
             });
         }
