@@ -1,0 +1,135 @@
+<div class="doc-container">
+  <h1 class="heading-1">Documentation</h1>
+
+  <section class="doc-section" id="overview">
+    <div class="section-head">
+      <h2 class="section-title">Overview</h2>
+    </div>
+    <div class="section-content">
+      <p class="doc-text">
+        RAuthApp API is a REST API for token based user authentication built using most common MEAN architecture of having Node, Express and MongoDB. The client side of this application is an Angular single-page app. The RAuthApp API,
+      </p>
+
+      <ul class="doc-list">
+        <li class="doc-list-item">Allows a user to register.</li>
+        <li class="doc-list-item">Saves the user data in MonboDB, password is encrypted before storing.</li>
+        <li class="doc-list-item">Let a returning user log in.</li>
+        <li class="doc-list-item">Keep a logged in user’s session alive between page visits.</li>
+        <li class="doc-list-item">Provide authorized access to Home and Profile pages, and prevents any unauthorized access to these pages.</li>
+        <li class="doc-list-item">Allow a valid user to restore the password securely.</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="doc-section" id="authentication">
+    <div class="section-head">
+      <h2 class="section-title">Authentication</h2>
+    </div>
+    <div class="section-content">
+      <p class="doc-text">User Authentication is handled with a auto generated token. You can attach your token to a request Via the Bearer Authorization HTTP header. If you don't append your token correctly, or your token is invalid, then you will receive a 401 - Unauthorized HTTP error.</p>
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="doc-section" id="endpoints">
+    <div class="section-head">
+      <h2 class="section-title">Endpoints</h2>
+    </div>
+    <div class="section-content">
+      <p class="doc-text">The RAuthApp API has 5 endpoints.</p>
+      <p class="doc-text" id="registrationEP">
+        <span>
+          <code>/api/registration</code> (POST) - Creates a new user account. This end point first checks if the user already exist by matching the provided email Id. If user already exist, the API will return 409 status code along with message. If user doesn't exist already, then user data is stored in MongoDB, and API responses with 200 status code along with a authentication token unique to the user, which will expire in 30 minutes and a success message. Required user data: First Name, Last Name, Email Id (Must be unique), Password. Profile picture field will be added in future.
+        </span>
+      </p>
+      <p class="doc-text" id="loginEP">
+        <span>
+          <code>/api/login</code> (POST) - Lets a returning user log in. This end point returns a user's unique authentication token, which expires in 30 minutes. This token can be used to keep user session alive between page visits.
+        </span>
+      </p>
+
+      <p class="doc-text" id="forgotPasswordEP">
+        <span>
+          <code>/api/forgot-password</code> (GET) - Allows a valid user to restore the password securely. If user found,this end point will send an email containing link to reset password. This link expires in one hour.
+        </span>
+      </p>
+
+      <p class="doc-text" id="forgotPasswordEP">
+        <span>
+          <code>/api/home</code> (GET) - Allows a valid user to access the user data.
+        </span>
+      </p>
+
+      <p class="doc-text" id="forgotPasswordEP">
+        <span>
+          <code>/api/profile</code> (GET) - Allows a valid user to access and modify the user data.
+        </span>
+      </p>
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="doc-section" id="errors">
+    <div class="section-head">
+      <h2 class="section-title">Errors</h2>
+    </div>
+    <div class="section-content">
+      <p class="doc-text"></p>
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="doc-section" id="flow">
+    <div class="section-head">
+      <h2 class="section-title">Flow</h2>
+    </div>
+    <div class="section-content">
+      <p class="doc-text">
+        So what does authentication look like in the MEAN stack?<br>
+        Still keeping this at a high level, these are the components of the flow:
+      </p>
+
+      <ul class="doc-list">
+        <li class="doc-list-item">User data is stored in MongoDB, with the passwords hashed.
+        </li>
+        <li class="doc-list-item">CRUD functions are built in an Express API — Create (register), Read (login, get profile), Update, Delete.</li>
+        <li class="doc-list-item">A Client application (Here Angular Single Page Application) calls the API and deals with the responses.
+        </li>
+        <li class="doc-list-item">The Express API generates a JSON Web Token upon registration or login, and passes this to the client application.
+        </li>
+        <li class="doc-list-item">The client application stores the JWT in order to maintain the user’s session
+        </li>
+        <li class="doc-list-item">The client application checks the validity of the JWT when displaying protected views
+        </li>
+        <li class="doc-list-item">The client application passes the JWT back to Express when calling protected API routes.</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="doc-section" id="clientApp">
+    <div class="section-head">
+      <h2 class="section-title">Client Application</h2>
+    </div>
+    <div class="section-content">
+      <p class="doc-text">Here, the client application is a simple Angular Single Page Application with five views:</p>
+      <ol class="doc-list">
+        <li class="doc-list-item">Registration</li>
+        <li class="doc-list-item">Login</li>
+        <li class="doc-list-item">Forgot Password</li>
+        <li class="doc-list-item">Home</li>
+        <li class="doc-list-item">Profile</li>
+      </ol>
+      <p class="doc-text">
+        The Angular application is enhanced with responsive design using Bootstrap 3. 
+      </p>
+    </div>
+  </section>
+
+</div>

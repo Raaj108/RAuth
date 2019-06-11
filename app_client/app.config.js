@@ -41,6 +41,9 @@ angular.module('RAuthApp')
         controller: 'profileCtrl',
         controllerAs: 'vm'
       })
+      .when('/docs', {
+        templateUrl: '/docs/documentation.html'        
+      })
       .otherwise({
         redirectTo: '/'
       });
