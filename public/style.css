@@ -335,3 +335,34 @@ div.user-profile-img img#profilePicture {
   font-size: 16px;
   cursor: pointer;
 }
+
+.doc-container {
+  width: 80%;
+  margin: 0 auto 50px auto;
+  padding-bottom: 25px;
+}
+
+.doc-container p {
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.doc-container .doc-list-item {
+  padding: 5px 0;
+}
+
+@media only screen and (max-width: 480px) {
+  .doc-container {
+    width: 100%;
+  }
+}
+
+#footer {
+  color: #c52208;
+  background: #ffffff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+  margin-top: 20px;
+}
