@@ -2,49 +2,52 @@
 <html lang="en" ng-app="RAuthApp">
 
 <head>
-    <base href="/">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" media="screen" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
-    <title>RAuth | A token based user authentication application</title>
-    <!--  -->
-    <style>
+  <base href="/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" media="screen" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../public/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+  <title>RAuth | A token based user authentication application</title>
+  <!--  -->
+  <style>
 
 
-    </style>
+  </style>
 
 </head>
 
 <body>
-    <navigation></navigation>
-    <div class="container">
-        <ng-view></ng-view>
-    </div>
+  <navigation></navigation>
+  <div class="container">
+    <ng-view></ng-view>
+  </div>
+  <footer id="footer">
+    <p class="text-center">Designed &amp; Developed by Rajan Patil</p>
+  </footer>
 
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../bower_components/angular/angular.min.js"></script>
-    <script src="../bower_components/angular-route/angular-route.min.js"></script>
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../bower_components/angular/angular.min.js"></script>
+  <script src="../bower_components/angular-route/angular-route.min.js"></script>
 
-    <script src="RAuth.module.js"></script>
-    <script src="app.config.js"></script>
-    <script src="app.run.js"></script>
-    <script src="app.filter.js"></script>
-    <script src="common/authentication.service.js"></script>
-    <script src="common/data.service.js"></script>
-    <script src="auth/register/register.controller.js"></script>
-    <script src="auth/login/login.controller.js"></script>
-    <script src="auth/forgot-password/forgotPassword.service.js"></script>
-    <script src="auth/forgot-password/resetPassword.service.js"></script>
-    <script src="auth/forgot-password/forgotPassword.controller.js"></script>
-    <script src="auth/forgot-password/resetPassword.controller.js"></script>
-    <script src="common/navigation.directive.js"></script>
-    <script src="common/navigation.controller.js"></script>
-    <script src="home/home.controller.js"></script>
-    <script src="common/fileread.directive.js"></script>
-    <script src="profile/profile.controller.js"></script>
+  <script src="RAuth.module.js"></script>
+  <script src="app.config.js"></script>
+  <script src="app.run.js"></script>
+  <script src="app.filter.js"></script>
+  <script src="common/authentication.service.js"></script>
+  <script src="common/data.service.js"></script>
+  <script src="auth/register/register.controller.js"></script>
+  <script src="auth/login/login.controller.js"></script>
+  <script src="auth/forgot-password/forgotPassword.service.js"></script>
+  <script src="auth/forgot-password/resetPassword.service.js"></script>
+  <script src="auth/forgot-password/forgotPassword.controller.js"></script>
+  <script src="auth/forgot-password/resetPassword.controller.js"></script>
+  <script src="common/navigation.directive.js"></script>
+  <script src="common/navigation.controller.js"></script>
+  <script src="home/home.controller.js"></script>
+  <script src="common/fileread.directive.js"></script>
+  <script src="profile/profile.controller.js"></script>
 </body>
 
 </html>
