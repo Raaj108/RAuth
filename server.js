@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 //serve static files
 app.use(express.static(__dirname + '/app_client'));
 app.use('/public', express.static(__dirname + '/public'));
-app.use('/bower_components', express.static(__dirname + '/bower_components'));
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
 //serving index.html on all the incoming http requests 
 app.get('/:var(login|register|forgot-password|forgot-password/confirmation|reset-password/*|profile|home|docs)', function (req, res) {
   res.sendFile(__dirname + '/app_client/index.html');
