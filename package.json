@@ -34,7 +34,7 @@
     "angular": "1.6.5",
     "angular-route": "1.6.5",
     "bootstrap": "3.3.7",
-    "jquery": "3.2.1"
+    "jquery": "3.5.0"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -43,6 +43,6 @@
     "angular": "1.6.5",
     "angular-route": "1.6.5",
     "bootstrap": "3.3.7",
-    "jquery": "3.2.1"
+    "jquery": "3.5.0"
   }
 }
