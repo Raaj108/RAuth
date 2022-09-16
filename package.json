@@ -33,7 +33,7 @@
     "serve-favicon": "^2.4.3",
     "angular": "1.6.5",
     "angular-route": "1.6.5",
-    "bootstrap": "3.3.7",
+    "bootstrap": "3.4.1",
     "jquery": "3.2.1"
   },
   "engines": {
@@ -42,7 +42,7 @@
   "devDependencies": {
     "angular": "1.6.5",
     "angular-route": "1.6.5",
-    "bootstrap": "3.3.7",
+    "bootstrap": "3.4.1",
     "jquery": "3.2.1"
   }
 }
